@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: eureka-service
+
+server:
+  port: 8000
+#    读取网卡时间 Cannot determine local hostname 读取网卡超时
+  cloud:
+    inetutils:
+      timeout-seconds: 10
+eureka:
+#是否允许其他注册和同步服务，默认为true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://47.101.130.37:8000/eureka/,http://127.0.0.1:8000/eureka/
+  server:
+    eviction-interval-timer-in-ms: 4000

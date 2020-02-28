@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzero.chenglu.dto.HgylPersonInfoDao">
+    <resultMap id="BaseResultMap" type="com.hzero.chenglu.entity.HgylPersonInfo">
+        <result column="id" property="id"/>
+        <result column="area" property="area"/>
+        <result column="job_num" property="jobNum"/>
+        <result column="name" property="name"/>
+        <result column="project" property="project"/>
+        <result column="working" property="working"/>
+        <result column="site" property="site"/>
+        <result column="start_date" property="startDate"/>
+        <result column="end_date" property="endDate"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        `id`,
+        `area`,
+        `job_num`,
+        `name`,
+        `project`,
+        `working`,
+        `site`,
+        `start_date`,
+        `end_date`,
+        `remark`
+    </sql>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.hzero.chenglu.entity.HgylPersonInfo">
+        INSERT INTO hgyl_person_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test='null != area'>
+                `area`,
+            </if>
+            <if test='null != jobNum'>
+                `job_num`,
+            </if>
+            <if test='null != name'>
+                `name`,
+            </if>
+            <if test='null != project'>
+                `project`,
+            </if>
+            <if test='null != working'>
+                `working`,
+            </if>
+            <if test='null != site'>
+                `site`,
+            </if>
+            <if test='null != startDate'>
+                `start_date`,
+            </if>
+            <if test='null != endDate'>
+                `end_date`,
+            </if>
+            <if test='null != remark'>
+                `remark`
+            w</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test='null != area'>
+                #{area},
+            </if>
+            <if test='null != jobNum'>
+                #{jobNum},
+            </if>
+            <if test='null != name'>
+                #{name},
+            </if>
+            <if test='null != project'>
+                #{project},
+            </if>
+            <if test='null != working'>
+                #{working},
+            </if>
+            <if test='null != site'>
+                #{site},
+            </if>
+            <if test='null != startDate'>
+                #{startDate},
+            </if>
+            <if test='null != endDate'>
+                #{endDate},
+            </if>
+            <if test='null != remark'>
+                #{remark}
+            </if>
+        </trim>
+    </insert>
+    <!--批量插入-->
+    <insert id="batchInsert" parameterType="java.util.List">
+        INSERT INTO
+        hgyl_person_info(
+        `area`,
+        `job_num`,
+        `name`,
+        `project`,
+        `working`,
+        `site`,
+        `start_date`,
+        `end_date`,
+        `remark`)
+        VALUES
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.area},
+            #{item.jobNum},
+            #{item.name},
+            #{item.project},
+            #{item.working},
+            #{item.site},
+            #{item.startDate},
+            #{item.endDate},
+            #{item.remark}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM hgyl_person_info
+        WHERE `id` = #{id}
+    </delete>
+
+    <update id="update">
+        UPDATE hgyl_person_info
+        <set>
+            <if test='null != id'>id = #{id},</if>
+            <if test='null != area'>area = #{area},</if>
+            <if test='null != jobNum'>job_num = #{jobNum},</if>
+            <if test='null != name'>name = #{name},</if>
+            <if test='null != project'>project = #{project},</if>
+            <if test='null != working'>working = #{working},</if>
+            <if test='null != site'>site = #{site},</if>
+            <if test='null != startDate'>start_date = #{startDate},</if>
+            <if test='null != endDate'>end_date = #{endDate},</if>
+            <if test='null != remark'>remark = #{remark}</if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM hgyl_person_info
+        WHERE `id` = #{id}
+    </select>
+    <select id="load" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM hgyl_person_info
+        WHERE `id` = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM hgyl_person_info
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM hgyl_person_info
+    </select>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `hgyl_person_info`
+        <trim prefix="where " prefixOverrides="and ">
+            <if test="id != null">
+                and `id` = #{id}
+            </if>
+            <if test="area != null">
+                and `area` = #{area}
+            </if>
+            <if test="jobNum != null">
+                and `job_num` = #{jobNum}
+            </if>
+            <if test="name != null">
+                and `name` like CONCAT(CONCAT('%',#{name}),'%')
+            </if>
+            <if test="project != null">
+                and `project` = #{project}
+            </if>
+            <if test="working != null">
+                and `working` = #{working}
+            </if>
+            <if test="site != null">
+                and `site` = #{site}
+            </if>
+            <if test="startDate != null">
+                and `start_date` = #{startDate}
+            </if>
+            <if test="endDate != null">
+                and `end_date` = #{endDate}
+            </if>
+            <if test="remark != null">
+                and `remark` = #{remark}
+            </if>
+        </trim>
+    </select>
+
+</mapper>

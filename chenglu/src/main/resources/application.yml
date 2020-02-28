@@ -1,0 +1,31 @@
+server:
+  port: 8088
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.101.130.37:8000/eureka/
+spring:
+  application:
+    name: cheng-lu
+  datasource:
+    url: jdbc:mysql://127.0.0.1/hzero_platform?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    inetutils:
+      timeout-seconds: 10
+mybatis:
+  typeAliasesPackage: com.hzero.chenglu.entity
+  mapperLocations: classpath:mapper/**/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+---
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
