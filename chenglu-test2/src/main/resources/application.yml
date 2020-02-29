@@ -1,0 +1,18 @@
+server:
+  port: 9005
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8000/eureka/,http://peer2:8002/eureka/,http://peer3:8003/eureka/
+spring:
+  application:
+    name: test2-service
+  cloud:
+    inetutils:
+      timeout-seconds: 10
+feign:
+  hystrix:
+    enabled: true
+
+
+
