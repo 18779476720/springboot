@@ -2,6 +2,7 @@ package com.hzero.chenglu.service;
 
 import com.hzero.chenglu.entity.HgylPersonInfo;
 import com.hzero.chenglu.unit.ReturnT;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ public interface HgylPersonInfoService {
     /**
      * 删除
      */
-    public ReturnT<String> delete(int id);
+    public ReturnT<String> delete(@Param("id") int id);
 
     /**
      * 更新
@@ -27,7 +28,7 @@ public interface HgylPersonInfoService {
      */
     public ReturnT load(int id);
 
-    public ReturnT list(HgylPersonInfo HgylPersonInfo);
+    public ReturnT list(HgylPersonInfo hgylPersonInfo);
 
     /**
      * 分页查询

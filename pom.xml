@@ -5,6 +5,8 @@
 	<modules>
 		<module>chenglu</module>
 		<module>spring-cloud</module>
+		<module>chenglu-test2</module>
+		<module>gateway-service</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

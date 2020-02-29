@@ -120,8 +120,8 @@ public class HgylPersonInfoServiceImpl implements HgylPersonInfoService {
      * Load查询
      */
     @Override
-    public ReturnT list(HgylPersonInfo HgylPersonInfo) {
-        return ReturnT.buildSuccess(hgylPersonInfoDao.list(HgylPersonInfo));
+    public ReturnT list(HgylPersonInfo hgylPersonInfo) {
+        return ReturnT.buildSuccess(hgylPersonInfoDao.list(hgylPersonInfo));
     }
 
 

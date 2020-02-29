@@ -4,10 +4,10 @@ public class BusinessException extends RuntimeException{
     private String code;
     private String msg;
 
-    public BusinessException(XKHResponseCodeEnum xKHResponseCodeEnum) {
-        super(xKHResponseCodeEnum.getChineseMessage());
-        this.msg = xKHResponseCodeEnum.getMsg();
-        this.code = xKHResponseCodeEnum.getCode();
+    public BusinessException(XKHResponseCodeEnum xkhResponseCodeEnum) {
+        super(xkhResponseCodeEnum.getChineseMessage());
+        this.msg = xkhResponseCodeEnum.getMsg();
+        this.code = xkhResponseCodeEnum.getCode();
     }
 
     public BusinessException() {
