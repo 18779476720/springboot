@@ -3,7 +3,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://peer1:8000/eureka/,http://peer2:8002/eureka/,http://peer3:8003/eureka/,http://47.101.130.37:8000/eureka/
+      defaultZone: http://47.101.130.37:8000/eureka/,http://peer1:8000/eureka/,http://peer2:8002/eureka/,http://peer3:8003/eureka/
 spring:
   application:
     name: cheng-lu
@@ -15,11 +15,24 @@ spring:
   cloud:
     inetutils:
       timeout-seconds: 10
+  mail:
+    host: smtp.qq.com
+    username: 1107956939@qq.com
+    password: vgqojlakamsuigcf
+    default-encoding: UTF-8
+    protocol: smtp
+#    host: smtphm.qiye.163.com
+#    username: lu.cheng01@hand-china.com
+#    password: mQF97EwK5Ze3KLJC
+#    default-encoding: UTF-8
+#    protocol: smtp
+
 mybatis:
   typeAliasesPackage: com.hzero.chenglu.entity
   mapperLocations: classpath:mapper/**/*.xml
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 
 ---
 #pagehelper分页插件

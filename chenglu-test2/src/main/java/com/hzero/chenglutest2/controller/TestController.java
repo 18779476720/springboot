@@ -33,6 +33,12 @@ public class TestController {
         return testService.testlist(hgylPersonInfo);
     }
 
+    @RequestMapping("/obj")
+    public Object obj(@RequestBody Object object) {
+        System.out.println("object:"+object.toString());
+        return testService.obj(object);
+    }
+
     @RequestMapping(value = "/load/{id}",method = RequestMethod.GET)
     public Object testload(@PathVariable("id") int id) {
         System.out.println("id:"+id);

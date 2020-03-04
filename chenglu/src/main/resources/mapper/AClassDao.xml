@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzero.chenglu.dao.AClassDao">
+
+    <resultMap type="com.hzero.chenglu.entity.AClass" id="AClassMap">
+        <result property="headId" column="head_id" jdbcType="INTEGER"/>
+        <result property="classCode" column="class_code" jdbcType="VARCHAR"/>
+        <result property="className" column="class_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AClassMap">
+        select
+          head_id, class_code, class_name
+        from hzero_platform.a_class
+        where head_id = #{headId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="AClassMap">
+        select
+          head_id, class_code, class_name
+        from hzero_platform.a_class
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="AClassMap">
+        select
+        head_id, class_code, class_name
+        from hzero_platform.a_class
+        <where>
+            <if test="headId != null">
+                and head_id = #{headId}
+            </if>
+            <if test="classCode != null and classCode != ''">
+                and class_code = #{classCode}
+            </if>
+            <if test="className != null and className != ''">
+                and class_name = #{className}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="headId" useGeneratedKeys="true">
+        INSERT INTO hzero_platform.a_class (class_code, class_name)
+        VALUES (#{classCode}, #{className})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update hzero_platform.a_class
+        <set>
+            <if test="classCode != null and classCode != ''">
+                class_code = #{classCode},
+            </if>
+            <if test="className != null and className != ''">
+                class_name = #{className},
+            </if>
+        </set>
+        where head_id = #{headId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from hzero_platform.a_class where head_id = #{headId}
+    </delete>
+
+</mapper>

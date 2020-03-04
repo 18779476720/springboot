@@ -3,7 +3,7 @@ spring:
     name: eureka-service
 
 server:
-  port: 8003
+  port: 8000
 #    读取网卡时间 Cannot determine local hostname 读取网卡超时
   cloud:
     inetutils:
@@ -16,7 +16,7 @@ eureka:
     service-url:
       defaultZone: http://47.101.130.37:8000/eureka/,http://peer1:8000/eureka/,http://peer2:8002/eureka/,http://peer3:8003/eureka/
   instance:
-    hostname: peer3
+    hostname: peer1
   prefer-ip-address: false
   server:
     eviction-interval-timer-in-ms: 4000

@@ -1,4 +1,4 @@
-package com.hzero.chenglu.dto;
+package com.hzero.chenglu.dao;
 
 import com.hzero.chenglu.entity.HgylPersonInfo;
 import org.apache.ibatis.annotations.Mapper;

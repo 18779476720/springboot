@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzero.chenglu.dao.AStudentDao">
+
+    <resultMap type="com.hzero.chenglu.entity.AStudent" id="AStudentMap">
+        <result property="lineId" column="line_id" jdbcType="INTEGER"/>
+        <result property="headId" column="head_id" jdbcType="INTEGER"/>
+        <result property="studentNumber" column="student_number" jdbcType="VARCHAR"/>
+        <result property="studentName" column="student_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AStudentMap">
+        select
+          line_id, head_id, student_number, student_name
+        from hzero_platform.a_student
+        where line_id = #{lineId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="AStudentMap">
+        select
+          line_id, head_id, student_number, student_name
+        from hzero_platform.a_student
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="AStudentMap">
+        select
+        line_id, head_id, student_number, student_name
+        from hzero_platform.a_student
+        <where>
+            <if test="lineId != null">
+                and line_id = #{lineId}
+            </if>
+            <if test="headId != null">
+                and head_id = #{headId}
+            </if>
+            <if test="studentNumber != null and studentNumber != ''">
+                and student_number = #{studentNumber}
+            </if>
+            <if test="studentName != null and studentName != ''">
+                and student_name = #{studentName}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="lineId" useGeneratedKeys="true">
+        INSERT INTO hzero_platform.a_student (head_id, student_number, student_name)
+        VALUES (#{headId}, #{studentNumber}, #{studentName})
+    </insert>
+    <!--新增所有列-->
+    <insert id="bacthInsert" keyProperty="lineId" useGeneratedKeys="true" parameterType="java.util.List">
+        insert into hzero_platform.a_student(head_id, student_number, student_name)
+        values
+        <foreach collection="list" item="item" index="index"
+                 separator=",">
+            (
+            #{item.headId},
+            #{item.studentNumber},
+            #{item.studentName}
+            )
+        </foreach>
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update hzero_platform.a_student
+        <set>
+            <if test="headId != null">
+                head_id = #{headId},
+            </if>
+            <if test="studentNumber != null and studentNumber != ''">
+                student_number = #{studentNumber},
+            </if>
+            <if test="studentName != null and studentName != ''">
+                student_name = #{studentName},
+            </if>
+        </set>
+        where line_id = #{lineId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from hzero_platform.a_student where line_id = #{lineId}
+    </delete>
+
+</mapper>

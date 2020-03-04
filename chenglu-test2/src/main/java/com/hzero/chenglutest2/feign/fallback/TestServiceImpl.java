@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class TestServiceImpl implements TestService {
-    private static final Object object = null;
+    private static final Object OBJECT = null;
 /**
  * description: testlist
  * date: 2020/2/29 13:52
@@ -26,6 +26,11 @@ public class TestServiceImpl implements TestService {
     }
     @Override
     public Object testLoad(int id) {
+        return 1;
+    }
+
+    @Override
+    public Object obj(Object object) {
         return 1;
     }
 }

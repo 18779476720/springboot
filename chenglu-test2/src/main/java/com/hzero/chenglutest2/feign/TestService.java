@@ -27,6 +27,9 @@ public interface TestService {
     @PostMapping("/hzero/list")
     public Object testlist(HgylPersonInfo hgylPersonInfo);
 
+    @PostMapping("/hzero/list")
+    public Object obj(Object object);
+
     /**
      * description: testLoad
      * date: 2020/2/29 16:14

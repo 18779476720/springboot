@@ -1,6 +1,6 @@
 package com.hzero.chenglu.service.impl;
 
-import com.hzero.chenglu.dto.HgylPersonInfoDao;
+import com.hzero.chenglu.dao.HgylPersonInfoDao;
 import com.hzero.chenglu.entity.HgylPersonInfo;
 import com.hzero.chenglu.service.HgylPersonInfoService;
 import com.hzero.chenglu.unit.BusinessException;
