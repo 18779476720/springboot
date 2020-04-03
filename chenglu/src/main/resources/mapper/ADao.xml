@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hzero.chenglu.dao.ADao">
+
+    <resultMap type="com.hzero.chenglu.entity.A" id="AMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="a1" column="a1" jdbcType="VARCHAR"/>
+        <result property="a2" column="a2" jdbcType="VARCHAR"/>
+        <result property="a3" column="a3" jdbcType="VARCHAR"/>
+        <result property="a4" column="a4" jdbcType="VARCHAR"/>
+        <result property="a5" column="a5" jdbcType="VARCHAR"/>
+        <result property="a6" column="a6" jdbcType="VARCHAR"/>
+        <result property="a7" column="a7" jdbcType="VARCHAR"/>
+        <result property="a8" column="a8" jdbcType="VARCHAR"/>
+        <result property="a9" column="a9" jdbcType="VARCHAR"/>
+        <result property="a10" column="a10" jdbcType="VARCHAR"/>
+        <result property="a11" column="a11" jdbcType="VARCHAR"/>
+        <result property="a12" column="a12" jdbcType="VARCHAR"/>
+        <result property="a13" column="a13" jdbcType="VARCHAR"/>
+        <result property="a14" column="a14" jdbcType="VARCHAR"/>
+        <result property="a15" column="a15" jdbcType="VARCHAR"/>
+        <result property="a16" column="a16" jdbcType="VARCHAR"/>
+        <result property="a17" column="a17" jdbcType="VARCHAR"/>
+        <result property="a18" column="a18" jdbcType="VARCHAR"/>
+        <result property="a19" column="a19" jdbcType="VARCHAR"/>
+        <result property="a20" column="a20" jdbcType="VARCHAR"/>
+        <result property="a21" column="a21" jdbcType="VARCHAR"/>
+        <result property="a22" column="a22" jdbcType="VARCHAR"/>
+        <result property="a23" column="a23" jdbcType="VARCHAR"/>
+        <result property="a24" column="a24" jdbcType="VARCHAR"/>
+        <result property="a25" column="a25" jdbcType="VARCHAR"/>
+        <result property="a26" column="a26" jdbcType="VARCHAR"/>
+        <result property="a27" column="a27" jdbcType="VARCHAR"/>
+        <result property="a28" column="a28" jdbcType="VARCHAR"/>
+        <result property="a29" column="a29" jdbcType="VARCHAR"/>
+        <result property="a30" column="a30" jdbcType="VARCHAR"/>
+        <result property="a31" column="a31" jdbcType="VARCHAR"/>
+        <result property="a32" column="a32" jdbcType="VARCHAR"/>
+        <result property="a33" column="a33" jdbcType="VARCHAR"/>
+        <result property="a34" column="a34" jdbcType="VARCHAR"/>
+        <result property="a35" column="a35" jdbcType="VARCHAR"/>
+        <result property="a36" column="a36" jdbcType="VARCHAR"/>
+        <result property="a37" column="a37" jdbcType="VARCHAR"/>
+        <result property="a38" column="a38" jdbcType="VARCHAR"/>
+        <result property="a39" column="a39" jdbcType="VARCHAR"/>
+        <result property="a40" column="a40" jdbcType="VARCHAR"/>
+        <result property="a41" column="a41" jdbcType="VARCHAR"/>
+        <result property="a42" column="a42" jdbcType="VARCHAR"/>
+        <result property="a43" column="a43" jdbcType="VARCHAR"/>
+        <result property="a44" column="a44" jdbcType="VARCHAR"/>
+        <result property="a45" column="a45" jdbcType="VARCHAR"/>
+        <result property="a46" column="a46" jdbcType="VARCHAR"/>
+        <result property="a47" column="a47" jdbcType="VARCHAR"/>
+        <result property="a48" column="a48" jdbcType="VARCHAR"/>
+        <result property="a49" column="a49" jdbcType="VARCHAR"/>
+        <result property="a50" column="a50" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <sql id="A_columns">
+    id, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50    </sql>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AMap">
+        select
+          id, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50
+        from hzero_platform.a
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="AMap">
+        select
+          id, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50
+        from hzero_platform.a
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="AMap">
+        select
+          id, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50
+        from hzero_platform.a
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="a1 != null and a1 != ''">
+                and a1 = #{a1}
+            </if>
+            <if test="a2 != null and a2 != ''">
+                and a2 = #{a2}
+            </if>
+            <if test="a3 != null and a3 != ''">
+                and a3 = #{a3}
+            </if>
+            <if test="a4 != null and a4 != ''">
+                and a4 = #{a4}
+            </if>
+            <if test="a5 != null and a5 != ''">
+                and a5 = #{a5}
+            </if>
+            <if test="a6 != null and a6 != ''">
+                and a6 = #{a6}
+            </if>
+            <if test="a7 != null and a7 != ''">
+                and a7 = #{a7}
+            </if>
+            <if test="a8 != null and a8 != ''">
+                and a8 = #{a8}
+            </if>
+            <if test="a9 != null and a9 != ''">
+                and a9 = #{a9}
+            </if>
+            <if test="a10 != null and a10 != ''">
+                and a10 = #{a10}
+            </if>
+            <if test="a11 != null and a11 != ''">
+                and a11 = #{a11}
+            </if>
+            <if test="a12 != null and a12 != ''">
+                and a12 = #{a12}
+            </if>
+            <if test="a13 != null and a13 != ''">
+                and a13 = #{a13}
+            </if>
+            <if test="a14 != null and a14 != ''">
+                and a14 = #{a14}
+            </if>
+            <if test="a15 != null and a15 != ''">
+                and a15 = #{a15}
+            </if>
+            <if test="a16 != null and a16 != ''">
+                and a16 = #{a16}
+            </if>
+            <if test="a17 != null and a17 != ''">
+                and a17 = #{a17}
+            </if>
+            <if test="a18 != null and a18 != ''">
+                and a18 = #{a18}
+            </if>
+            <if test="a19 != null and a19 != ''">
+                and a19 = #{a19}
+            </if>
+            <if test="a20 != null and a20 != ''">
+                and a20 = #{a20}
+            </if>
+            <if test="a21 != null and a21 != ''">
+                and a21 = #{a21}
+            </if>
+            <if test="a22 != null and a22 != ''">
+                and a22 = #{a22}
+            </if>
+            <if test="a23 != null and a23 != ''">
+                and a23 = #{a23}
+            </if>
+            <if test="a24 != null and a24 != ''">
+                and a24 = #{a24}
+            </if>
+            <if test="a25 != null and a25 != ''">
+                and a25 = #{a25}
+            </if>
+            <if test="a26 != null and a26 != ''">
+                and a26 = #{a26}
+            </if>
+            <if test="a27 != null and a27 != ''">
+                and a27 = #{a27}
+            </if>
+            <if test="a28 != null and a28 != ''">
+                and a28 = #{a28}
+            </if>
+            <if test="a29 != null and a29 != ''">
+                and a29 = #{a29}
+            </if>
+            <if test="a30 != null and a30 != ''">
+                and a30 = #{a30}
+            </if>
+            <if test="a31 != null and a31 != ''">
+                and a31 = #{a31}
+            </if>
+            <if test="a32 != null and a32 != ''">
+                and a32 = #{a32}
+            </if>
+            <if test="a33 != null and a33 != ''">
+                and a33 = #{a33}
+            </if>
+            <if test="a34 != null and a34 != ''">
+                and a34 = #{a34}
+            </if>
+            <if test="a35 != null and a35 != ''">
+                and a35 = #{a35}
+            </if>
+            <if test="a36 != null and a36 != ''">
+                and a36 = #{a36}
+            </if>
+            <if test="a37 != null and a37 != ''">
+                and a37 = #{a37}
+            </if>
+            <if test="a38 != null and a38 != ''">
+                and a38 = #{a38}
+            </if>
+            <if test="a39 != null and a39 != ''">
+                and a39 = #{a39}
+            </if>
+            <if test="a40 != null and a40 != ''">
+                and a40 = #{a40}
+            </if>
+            <if test="a41 != null and a41 != ''">
+                and a41 = #{a41}
+            </if>
+            <if test="a42 != null and a42 != ''">
+                and a42 = #{a42}
+            </if>
+            <if test="a43 != null and a43 != ''">
+                and a43 = #{a43}
+            </if>
+            <if test="a44 != null and a44 != ''">
+                and a44 = #{a44}
+            </if>
+            <if test="a45 != null and a45 != ''">
+                and a45 = #{a45}
+            </if>
+            <if test="a46 != null and a46 != ''">
+                and a46 = #{a46}
+            </if>
+            <if test="a47 != null and a47 != ''">
+                and a47 = #{a47}
+            </if>
+            <if test="a48 != null and a48 != ''">
+                and a48 = #{a48}
+            </if>
+            <if test="a49 != null and a49 != ''">
+                and a49 = #{a49}
+            </if>
+            <if test="a50 != null and a50 != ''">
+                and a50 = #{a50}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into hzero_platform.a(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50)
+        values (#{a1}, #{a2}, #{a3}, #{a4}, #{a5}, #{a6}, #{a7}, #{a8}, #{a9}, #{a10}, #{a11}, #{a12}, #{a13}, #{a14}, #{a15}, #{a16}, #{a17}, #{a18}, #{a19}, #{a20}, #{a21}, #{a22}, #{a23}, #{a24}, #{a25}, #{a26}, #{a27}, #{a28}, #{a29}, #{a30}, #{a31}, #{a32}, #{a33}, #{a34}, #{a35}, #{a36}, #{a37}, #{a38}, #{a39}, #{a40}, #{a41}, #{a42}, #{a43}, #{a44}, #{a45}, #{a46}, #{a47}, #{a48}, #{a49}, #{a50})
+    </insert>
+    <!-- 批量增加 -->
+    <insert id="bacthInsert" keyProperty="id" useGeneratedKeys="true" parameterType="java.util.List">
+        insert into hzero_platform.a(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17, a18, a19, a20, a21, a22, a23, a24, a25, a26, a27, a28, a29, a30, a31, a32, a33, a34, a35, a36, a37, a38, a39, a40, a41, a42, a43, a44, a45, a46, a47, a48, a49, a50)
+        values 
+		<foreach collection="list" item="item" index="index" separator=",">
+		(#{item.a1}, #{item.a2}, #{item.a3}, #{item.a4}, #{item.a5}, #{item.a6}, #{item.a7}, #{item.a8}, #{item.a9}, #{item.a10}, #{item.a11}, #{item.a12}, #{item.a13}, #{item.a14}, #{item.a15}, #{item.a16}, #{item.a17}, #{item.a18}, #{item.a19}, #{item.a20}, #{item.a21}, #{item.a22}, #{item.a23}, #{item.a24}, #{item.a25}, #{item.a26}, #{item.a27}, #{item.a28}, #{item.a29}, #{item.a30}, #{item.a31}, #{item.a32}, #{item.a33}, #{item.a34}, #{item.a35}, #{item.a36}, #{item.a37}, #{item.a38}, #{item.a39}, #{item.a40}, #{item.a41}, #{item.a42}, #{item.a43}, #{item.a44}, #{item.a45}, #{item.a46}, #{item.a47}, #{item.a48}, #{item.a49}, #{item.a50})
+		</foreach>
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update hzero_platform.a
+        <set>
+            <if test="a1 != null and a1 != ''">
+                a1 = #{a1},
+            </if>
+            <if test="a2 != null and a2 != ''">
+                a2 = #{a2},
+            </if>
+            <if test="a3 != null and a3 != ''">
+                a3 = #{a3},
+            </if>
+            <if test="a4 != null and a4 != ''">
+                a4 = #{a4},
+            </if>
+            <if test="a5 != null and a5 != ''">
+                a5 = #{a5},
+            </if>
+            <if test="a6 != null and a6 != ''">
+                a6 = #{a6},
+            </if>
+            <if test="a7 != null and a7 != ''">
+                a7 = #{a7},
+            </if>
+            <if test="a8 != null and a8 != ''">
+                a8 = #{a8},
+            </if>
+            <if test="a9 != null and a9 != ''">
+                a9 = #{a9},
+            </if>
+            <if test="a10 != null and a10 != ''">
+                a10 = #{a10},
+            </if>
+            <if test="a11 != null and a11 != ''">
+                a11 = #{a11},
+            </if>
+            <if test="a12 != null and a12 != ''">
+                a12 = #{a12},
+            </if>
+            <if test="a13 != null and a13 != ''">
+                a13 = #{a13},
+            </if>
+            <if test="a14 != null and a14 != ''">
+                a14 = #{a14},
+            </if>
+            <if test="a15 != null and a15 != ''">
+                a15 = #{a15},
+            </if>
+            <if test="a16 != null and a16 != ''">
+                a16 = #{a16},
+            </if>
+            <if test="a17 != null and a17 != ''">
+                a17 = #{a17},
+            </if>
+            <if test="a18 != null and a18 != ''">
+                a18 = #{a18},
+            </if>
+            <if test="a19 != null and a19 != ''">
+                a19 = #{a19},
+            </if>
+            <if test="a20 != null and a20 != ''">
+                a20 = #{a20},
+            </if>
+            <if test="a21 != null and a21 != ''">
+                a21 = #{a21},
+            </if>
+            <if test="a22 != null and a22 != ''">
+                a22 = #{a22},
+            </if>
+            <if test="a23 != null and a23 != ''">
+                a23 = #{a23},
+            </if>
+            <if test="a24 != null and a24 != ''">
+                a24 = #{a24},
+            </if>
+            <if test="a25 != null and a25 != ''">
+                a25 = #{a25},
+            </if>
+            <if test="a26 != null and a26 != ''">
+                a26 = #{a26},
+            </if>
+            <if test="a27 != null and a27 != ''">
+                a27 = #{a27},
+            </if>
+            <if test="a28 != null and a28 != ''">
+                a28 = #{a28},
+            </if>
+            <if test="a29 != null and a29 != ''">
+                a29 = #{a29},
+            </if>
+            <if test="a30 != null and a30 != ''">
+                a30 = #{a30},
+            </if>
+            <if test="a31 != null and a31 != ''">
+                a31 = #{a31},
+            </if>
+            <if test="a32 != null and a32 != ''">
+                a32 = #{a32},
+            </if>
+            <if test="a33 != null and a33 != ''">
+                a33 = #{a33},
+            </if>
+            <if test="a34 != null and a34 != ''">
+                a34 = #{a34},
+            </if>
+            <if test="a35 != null and a35 != ''">
+                a35 = #{a35},
+            </if>
+            <if test="a36 != null and a36 != ''">
+                a36 = #{a36},
+            </if>
+            <if test="a37 != null and a37 != ''">
+                a37 = #{a37},
+            </if>
+            <if test="a38 != null and a38 != ''">
+                a38 = #{a38},
+            </if>
+            <if test="a39 != null and a39 != ''">
+                a39 = #{a39},
+            </if>
+            <if test="a40 != null and a40 != ''">
+                a40 = #{a40},
+            </if>
+            <if test="a41 != null and a41 != ''">
+                a41 = #{a41},
+            </if>
+            <if test="a42 != null and a42 != ''">
+                a42 = #{a42},
+            </if>
+            <if test="a43 != null and a43 != ''">
+                a43 = #{a43},
+            </if>
+            <if test="a44 != null and a44 != ''">
+                a44 = #{a44},
+            </if>
+            <if test="a45 != null and a45 != ''">
+                a45 = #{a45},
+            </if>
+            <if test="a46 != null and a46 != ''">
+                a46 = #{a46},
+            </if>
+            <if test="a47 != null and a47 != ''">
+                a47 = #{a47},
+            </if>
+            <if test="a48 != null and a48 != ''">
+                a48 = #{a48},
+            </if>
+            <if test="a49 != null and a49 != ''">
+                a49 = #{a49},
+            </if>
+            <if test="a50 != null and a50 != ''">
+                a50 = #{a50},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from hzero_platform.a where id = #{id}
+    </delete>
+
+</mapper>

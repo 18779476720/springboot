@@ -22,6 +22,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/hzero")
+@CrossOrigin
 public class HgylPersonInfoController {
 
     @Autowired
@@ -38,8 +39,9 @@ public class HgylPersonInfoController {
     /**
      * 删除
      */
-    @RequestMapping(value = "/delete",method = RequestMethod.DELETE)
-    public ReturnT<String> delete(int id) {
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
+    public ReturnT<String> delete(@PathVariable("id") Integer id) {
+        System.out.println("id="+id);
         return hgylPersonInfoService.delete(id);
     }
 
@@ -68,7 +70,7 @@ public class HgylPersonInfoController {
      * @return
      */
     @RequestMapping(value = "/list",method = RequestMethod.POST)
-    public ReturnT list(@RequestBody HgylPersonInfo hgylPersonInfo) {
+    public ReturnT list(@RequestBody(required = false) HgylPersonInfo hgylPersonInfo) {
         System.out.println("asdfadsf");
         return hgylPersonInfoService.list(hgylPersonInfo);
     }

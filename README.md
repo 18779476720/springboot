@@ -82,4 +82,27 @@ mapping中批量插入：
                   #{item.remark}
                   )
               </foreach>
+              
+动态执行：
+
+        JexlEngine jexl=new JexlEngine();  
+        Expression e = jexl.createExpression(jexlExp);//jexlExp 需要执行的语句
+        
+        maven 依赖
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-jexl</artifactId>
+            <version>2.0</version>
+        </dependency>
+        
+        
+ ## 前端
+ 
+  更改源
+  
+    npm config set registry https://registry.npm.taobao.org
+    npm config set disturl https://npm.taobao.org/dist
+    yarn  --ignore-scripts; //有scripts报错
+
+
       

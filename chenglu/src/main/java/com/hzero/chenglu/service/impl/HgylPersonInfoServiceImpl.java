@@ -58,7 +58,7 @@ public class HgylPersonInfoServiceImpl implements HgylPersonInfoService {
      * 批量插入
      */
     @Override
-    public ReturnT batchInsert(List<HgylPersonInfo> hgylPersonInfos){
+    public ReturnT batchInsert(List<HgylPersonInfo> hgylPersonInfos) {
 //        hgylPersonInfoDao.batchInsert(hgylPersonInfos);
         return ReturnT.buildSuccess(hgylPersonInfoDao.batchInsert(hgylPersonInfos));
     }
@@ -68,14 +68,15 @@ public class HgylPersonInfoServiceImpl implements HgylPersonInfoService {
      * version: 1.0 <br>
      * date: 2020/2/27 16:27 <br>
      * author: objcat <br>
+     * <p>
+     * [id]
      *
-    [id]
      * @return com.hzero.chenglu.unit.ReturnT<java.lang.String>
      */
     @Override
     public ReturnT<String> delete(int id) {
         int ret = hgylPersonInfoDao.delete(id);
-        return ret > 0 ? ReturnT.build("00000", "删除成功") : ReturnT.build("11111", "删除失败");
+        return ret > 0 ? ReturnT.build("00000", "删除成功", String.valueOf(ret)) : ReturnT.build("11111", "删除失败", String.valueOf(ret));
     }
 
     /**
@@ -87,7 +88,7 @@ public class HgylPersonInfoServiceImpl implements HgylPersonInfoService {
         String msg = "";
         String code = "";
         String datas = "";
-        
+
 
         int count = 0;
 

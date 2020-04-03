@@ -6,7 +6,13 @@ import java.util.List;
 
 public class ReturnT<T> implements Serializable {
 
-    public static ReturnT<String> buildSuccess = new ReturnT("00000","success","");
+    public static ReturnT<String> buildSuccess = new ReturnT("00000", "success", "");
+    final String SUCCESS = "true";
+    final String FAILE = "false";
+    /**
+     * 返回结果
+     */
+    private String success;
     /**
      * 返回code
      */
@@ -19,6 +25,14 @@ public class ReturnT<T> implements Serializable {
      * 返回数据
      */
     private T datas;
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
 
     public String getCode() {
         return code;
@@ -73,6 +87,7 @@ public class ReturnT<T> implements Serializable {
         apiResult.setDatas(datas);
         return apiResult;
     }
+
     public static <T> ReturnT<T> buildSuccess() {
         ReturnT<T> apiResult = new ReturnT<T>();
         apiResult.setCode(XKHResponseCodeEnum.SUCCESS.getCode());
@@ -95,6 +110,7 @@ public class ReturnT<T> implements Serializable {
         }
         throw new BusinessException(apiResult.getCode(), apiResult.getMessage());
     }
+
     public ReturnT() {
     }
 

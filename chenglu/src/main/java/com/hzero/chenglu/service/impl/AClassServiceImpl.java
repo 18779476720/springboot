@@ -6,7 +6,6 @@ import com.hzero.chenglu.dao.AClassDao;
 import com.hzero.chenglu.entity.AStudent;
 import com.hzero.chenglu.service.AClassService;
 import org.springframework.dao.DataAccessException;
-import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

@@ -4,6 +4,7 @@ package com.hzero.chenglu.controller;
 import com.hzero.chenglu.entity.AClass;
 import com.hzero.chenglu.service.AClassService;
 import io.swagger.annotations.Api;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -20,6 +21,7 @@ import java.util.concurrent.ExecutionException;
 @Api(description = "班级测试",tags = "班级接口")
 @RestController
 @RequestMapping("/aClass")
+@CrossOrigin
 public class AClassController {
     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     /**
@@ -35,7 +37,7 @@ public class AClassController {
      * @return 单条数据
      */
     @GetMapping("/selectOne")
-    public AClass selectOne(Integer id) {
+    public AClass selectOne(@Param("id") Integer id) {
         return this.aClassService.queryById(id);
     }
     public Object insert(@RequestBody AClass aClass) {
